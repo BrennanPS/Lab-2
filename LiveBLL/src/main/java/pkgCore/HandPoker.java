@@ -209,7 +209,7 @@ public class HandPoker extends Hand implements Comparable {
 		}
 		//Evaluate Straight
 		for (; i < this.getCards().size() - 1; i++) {
-			if ((this.getCards().get(i).geteRankValue().getiRankNbr()) == (this.getCards().get(i + 1).geteRankValue().getRankNbr() - 1)) {
+			if ((this.getCards().get(i).geteRankValue().getiRankNbr()) == (this.getCards().get(i + 1).geteRankValue().getiRankNbr() - 1)) {
 				
 			}
 			else {
