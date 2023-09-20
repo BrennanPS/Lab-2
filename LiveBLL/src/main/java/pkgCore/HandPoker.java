@@ -19,8 +19,10 @@ public class HandPoker extends Hand implements Comparable {
 	public HandPoker() {
 
 		this.setHS(new HandScorePoker());
+		//comment 1
+		
 	}
-
+// comment
 	private ArrayList<CardRankCount> CRC = null;
 
 	private HandScorePoker HSP = new HandScorePoker();
@@ -59,7 +61,7 @@ public class HandPoker extends Hand implements Comparable {
 			if (iCnt > 0) {
 				iPos = FindCardRank(eRank);
 				CRC.add(new CardRankCount(eRank, iCnt, iPos));
-				
+
 			}
 		}
 		Collections.sort(CRC);
@@ -145,16 +147,20 @@ public class HandPoker extends Hand implements Comparable {
 	private boolean isRoyalFlush() {
 
 		boolean bIsRoyalFlush = false;
-		//TODO: Implement method
-		
+		// TODO: Implement method
+
 		return bIsRoyalFlush;
-		
+
 	}
 
 	private boolean isStraightFlush() {
 		boolean bisStraightFlush = false;
 
-		//TODO: Implement method
+		// TODO: Implement method
+		if (isStraight() && isFlush()) {
+			bisStraightFlush = true;
+		}
+		
 		return bisStraightFlush;
 	}
 
@@ -162,13 +168,11 @@ public class HandPoker extends Hand implements Comparable {
 		boolean bisFourOfAKind = false;
 
 		if ((GetCRCSize() == eRowCount.TWO.getiRowCountItems())
-				&& ((GetCRCCount(eRow.ONE.ordinal()) == 4) 
-						&& (GetCRCCount(eRow.TWO.ordinal()) == 1))) {
+				&& ((GetCRCCount(eRow.ONE.ordinal()) == 4) && (GetCRCCount(eRow.TWO.ordinal()) == 1))) {
 			bisFourOfAKind = true;
 			HandScorePoker HSP = (HandScorePoker) this.getHS();
 			HSP.seteHandStrength(eHandStrength.FourOfAKind);
-			HSP.setHiCard(this.getCards()
-					.get(CRC.get(eRow.ONE.ordinal()).getiCardPosition()));
+			HSP.setHiCard(this.getCards().get(CRC.get(eRow.ONE.ordinal()).getiCardPosition()));
 			HSP.setLoCard(null);
 			HSP.setKickers(FindTheKickers(this.getCRC()));
 			this.setHS(HSP);
@@ -179,7 +183,7 @@ public class HandPoker extends Hand implements Comparable {
 	private boolean isFullHouse() {
 		boolean bisFullHouse = false;
 
-		//TODO: Implement method
+		// TODO: Implement method
 
 		return bisFullHouse;
 
@@ -188,13 +192,35 @@ public class HandPoker extends Hand implements Comparable {
 	private boolean isFlush() {
 		boolean bisFlush = false;
 
-		//TODO: Implement method
+		// TODO: Implement method
 
 		return bisFlush;
 	}
 
 	private boolean isStraight() {
-		boolean bisStraight = false;
+		boolean bisStraight = true;
+		int i = 0;
+		if ((this.getCards().get(0).geteRankValue() == eRank.ACE) && (this.getCards().get(1).geteRankValue() == eRank.FIVE)) {
+			i = 1;
+		}
+		//Evaluate Straight
+		for (; i < this.getCards().size()-1; i++) {
+			if ((this.getCards().get(i).getRankValue().getRankNbr()) == (this.getCards().get(i+1).getRankValue().getRankNbr() - 1)) {
+				
+			}
+			else {
+				bisStraight = false;
+			}
+			if (bisStraight) {
+				HandScorePoker HSP = (HandScorePoker) this.getHS();
+				HSP.seteHandStrength(eHandStrength.Straight);
+				HSP.setHiCard(this.getCards().get(0);
+				HSP.setLoCard(null);
+				HSP.setKickers(FindTheKickers(this.getCRC()));
+				this.setHS(HSP);
+			}
+				
+			}
 		//TODO: Implement method
 		return bisStraight;
 	}
@@ -202,21 +228,21 @@ public class HandPoker extends Hand implements Comparable {
 	private boolean isThreeOfAKind() {
 		boolean bisThreeOfAKind = false;
 
-		//TODO: Implement method
+		// TODO: Implement method
 		return bisThreeOfAKind;
 	}
 
 	private boolean isTwoPair() {
 		boolean bisTwoPair = false;
 
-		//TODO: Implement method
+		// TODO: Implement method
 		return bisTwoPair;
 	}
 
 	private boolean isPair() {
 
 		boolean bisPair = false;
-		//TODO: Implement method
+		// TODO: Implement method
 
 		return bisPair;
 	}
@@ -270,12 +296,7 @@ public class HandPoker extends Hand implements Comparable {
 	}
 
 	// External Comparator
-	public static Comparator<HandPoker> hpComparator = new Comparator<HandPoker>() {
-		@Override
-		public int compare(HandPoker hp1, HandPoker hp2) {
-			return hp1.compareTo(hp2);
-		}
-	};
+	public static Comparator<HandPoker> hpComparator=new Comparator<HandPoker>(){@Override public int compare(HandPoker hp1,HandPoker hp2){return hp1.compareTo(hp2);}};
 
 	/**
 	 * @author BRG
