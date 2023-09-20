@@ -152,6 +152,14 @@ public class HandPoker extends Hand implements Comparable {
 				bIsRoyalFlush = true;
 			}
 		}
+		if (bisRoyalFlush) {
+			HandScorePoker HSP = (HandScorePoker) this.getHS();
+			HSP.seteHandStrength(eHandStrength.Flush);
+			HSP.setHiCard(this.getCards().get(0));
+			HSP.setLoCard(null);
+			HSP.setKickers(FindTheKickers(this.getCRC()));
+			this.setHS(HSP);
+		}
 
 		return bIsRoyalFlush;
 
@@ -163,6 +171,14 @@ public class HandPoker extends Hand implements Comparable {
 		// TODO: Implement method
 		if (isStraight() && isFlush()) {
 			bisStraightFlush = true;
+		}
+		if (bisStraightFlush) {
+			HandScorePoker HSP = (HandScorePoker) this.getHS();
+			HSP.seteHandStrength(eHandStrength.Flush);
+			HSP.setHiCard(this.getCards().get(0));
+			HSP.setLoCard(null);
+			HSP.setKickers(FindTheKickers(this.getCRC()));
+			this.setHS(HSP);
 		}
 		
 		return bisStraightFlush;
