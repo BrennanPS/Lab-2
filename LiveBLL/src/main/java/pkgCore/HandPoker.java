@@ -208,8 +208,8 @@ public class HandPoker extends Hand implements Comparable {
 			i = 1;
 		}
 		//Evaluate Straight
-		for (; i < this.getCards().size()-1; i++) {
-			if ((this.getCards().get(i).getRankValue().getRankNbr()) == (this.getCards().get(i+1).getRankValue().getRankNbr() - 1)) {
+		for (; i < this.getCards().size() - 1; i++) {
+			if ((this.getCards().get(i).geteRankValue().getRankNbr()) == (this.getCards().get(i + 1).geteRankValue().getRankNbr() - 1)) {
 				
 			}
 			else {
@@ -218,7 +218,7 @@ public class HandPoker extends Hand implements Comparable {
 			if (bisStraight) {
 				HandScorePoker HSP = (HandScorePoker) this.getHS();
 				HSP.seteHandStrength(eHandStrength.Straight);
-				HSP.setHiCard(this.getCards().get(0);
+				HSP.setHiCard(this.getCards().get(0));
 				HSP.setLoCard(null);
 				HSP.setKickers(FindTheKickers(this.getCRC()));
 				this.setHS(HSP);
