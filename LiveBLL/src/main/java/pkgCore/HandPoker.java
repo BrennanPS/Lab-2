@@ -267,6 +267,19 @@ public class HandPoker extends Hand implements Comparable {
 		boolean bisThreeOfAKind = false;
 
 		// TODO: Implement method
+		
+		if()
+		
+		if ((GetCRCSize() == eRowCount.TWO.getiRowCountItems())
+				&& ((GetCRCCount(eRow.ONE.ordinal()) == 3) && (GetCRCCount(eRow.TWO.ordinal()) == 1))) {
+			bisThreeOfAKind = true;
+			HandScorePoker HSP = (HandScorePoker) this.getHS();
+			HSP.seteHandStrength(eHandStrength.ThreeOfAKind);
+			HSP.setHiCard(this.getCards().get(CRC.get(eRow.ONE.ordinal()).getiCardPosition()));
+			HSP.setLoCard(null);
+			HSP.setKickers(FindTheKickers(this.getCRC()));
+			this.setHS(HSP);
+		}
 		return bisThreeOfAKind;
 	}
 
