@@ -268,8 +268,6 @@ public class HandPoker extends Hand implements Comparable {
 
 		// TODO: Implement method
 		
-		if()
-		
 		if ((GetCRCSize() == eRowCount.TWO.getiRowCountItems())
 				&& ((GetCRCCount(eRow.ONE.ordinal()) == 3) && (GetCRCCount(eRow.TWO.ordinal()) == 1))) {
 			bisThreeOfAKind = true;
