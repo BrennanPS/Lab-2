@@ -192,7 +192,7 @@ public class HandPoker extends Hand implements Comparable {
 			bisFourOfAKind = true;
 			HandScorePoker HSP = (HandScorePoker) this.getHS();
 			HSP.seteHandStrength(eHandStrength.FourOfAKind);
-			HSP.setHiCard(this.getCards().get(CRC.get(eRow.ONE.ordinal()).getiCardPosition()));
+			HSP.setHiCard(this.getCards().get(CRC.get(eRow.TWO.ordinal()).getiCardPosition()));
 			HSP.setLoCard(null);
 			HSP.setKickers(FindTheKickers(this.getCRC()));
 			this.setHS(HSP);
@@ -204,6 +204,15 @@ public class HandPoker extends Hand implements Comparable {
 		boolean bisFullHouse = false;
 
 		// TODO: Implement method
+		/*
+		 if ((GetCRCSize() == eRowCount.TWO.getiRowCountItems()) 
+				&& ((GetCRCCount(eRow.ONE.ordinal())== 3) && (GetCRCCount(eRow.TWO.ordinal()) == 2))) {
+			bisFullHouse = true;
+			HandScorePoker HSP = (HandScorePoker) this.getHS();
+			HSP.seteHandStrength(eHandStrength.FullHouse);
+			HSP.setHiCard(this.getCards()get(CRC.get(eRow.)));
+		}
+		*/
 
 		return bisFullHouse;
 

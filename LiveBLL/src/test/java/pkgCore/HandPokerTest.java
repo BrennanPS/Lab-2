@@ -175,7 +175,7 @@ public class HandPokerTest {
 	}		
 	
 	@Test
-	public void HandPoker_Staight1() {
+	public void HandPoker_Straight1() {
 		
 		ArrayList<Card> cards = new ArrayList<Card>();
 		
@@ -201,7 +201,7 @@ public class HandPokerTest {
 	}	
 	
 	@Test
-	public void HandPoker_Staight2() {
+	public void HandPoker_Straight2() {
 		
 		ArrayList<Card> cards = new ArrayList<Card>();
 		
@@ -227,7 +227,7 @@ public class HandPokerTest {
 	}	
 	
 	@Test
-	public void HandPoker_Staight3() {
+	public void HandPoker_Straight3() {
 		
 		ArrayList<Card> cards = new ArrayList<Card>();
 		
