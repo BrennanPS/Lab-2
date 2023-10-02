@@ -248,7 +248,7 @@ public class HandPoker extends Hand implements Comparable {
 		int i = 0;
 		
 		// Skip to card 1 if Ace high
-		if ((this.getCards().get(0).geteRankValue() == eRank.ACE) && ((this.getCards().get(1).geteRankValue() == eRank.FIVE) || (this.getCards().get(1).geteRankValue() == eRank.TEN))) {
+		if ((this.getCards().get(0).geteRankValue() == eRank.ACE) && ((this.getCards().get(1).geteRankValue() == eRank.FIVE) || (this.getCards().get(1).geteRankValue() == eRank.KING))) {
 			i = 1;
 		}
 		//Evaluate Straight
