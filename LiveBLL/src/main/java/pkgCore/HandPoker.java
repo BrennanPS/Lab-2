@@ -266,6 +266,7 @@ public class HandPoker extends Hand implements Comparable {
 			}
 			else {
 				bisStraight = false;
+				break;
 			}
 				
 		}
