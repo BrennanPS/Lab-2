@@ -303,6 +303,57 @@ public class HandPokerTest {
 		Assertions.assertNull(HP.getHSP().getLoCard());
 		
 	}	
+	@Test
+	public void HandPoker_FourOfAKind1() {
+		
+		ArrayList<Card> cards = new ArrayList<Card>();
+		
+		cards.add(new Card(eSuit.CLUBS, eRank.TEN,1));
+		cards.add(new Card(eSuit.HEARTS, eRank.TEN,1));
+		cards.add(new Card(eSuit.DIAMONDS, eRank.TEN,1));
+		cards.add(new Card(eSuit.SPADES, eRank.TEN,1));
+		cards.add(new Card(eSuit.CLUBS, eRank.JACK,1));
+		
+		HandPoker HP = new HandPoker();
+		HP.setCards(cards);
+		
+		try {
+			HP.ScoreHand();
+		} catch (HandException e) {
+			e.printStackTrace();
+		}
 
+		Assertions.assertEquals(eHandStrength.FourOfAKind, HP.getHSP().geteHandStrength());
+		Assertions.assertEquals(eRank.TEN, HP.getHSP().getHiCard().geteRankValue());
+		Assertions.assertNull(HP.getHSP().getLoCard());
+		Assertions.assertEquals(eRank.JACK, HP.getHSP().getKickers().get(0).geteRankValue());
+		
+	}	
+	@Test
+	public void HandPoker_FourOfAKind2() {
+		
+		ArrayList<Card> cards = new ArrayList<Card>();
+		
+		cards.add(new Card(eSuit.HEARTS, eRank.JACK,1));
+		cards.add(new Card(eSuit.CLUBS, eRank.QUEEN,1));
+		cards.add(new Card(eSuit.DIAMONDS, eRank.QUEEN,1));
+		cards.add(new Card(eSuit.SPADES, eRank.QUEEN,1));
+		cards.add(new Card(eSuit.HEARTS, eRank.QUEEN,1));
+		
+		HandPoker HP = new HandPoker();
+		HP.setCards(cards);
+		
+		try {
+			HP.ScoreHand();
+		} catch (HandException e) {
+			e.printStackTrace();
+		}
+
+		Assertions.assertEquals(eHandStrength.FourOfAKind, HP.getHSP().geteHandStrength());
+		Assertions.assertEquals(eRank.QUEEN, HP.getHSP().getHiCard().geteRankValue());
+		Assertions.assertNull(HP.getHSP().getLoCard());
+		Assertions.assertEquals(eRank.JACK, HP.getHSP().getKickers().get(0).geteRankValue());
+		
+	}	
 
 }
