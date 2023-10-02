@@ -168,7 +168,6 @@ public class HandPoker extends Hand implements Comparable {
 	private boolean isStraightFlush() {
 		boolean bisStraightFlush = false;
 
-		// TODO: Implement method
 		if (isStraight() && isFlush()) {
 			bisStraightFlush = true;
 		}
@@ -203,7 +202,6 @@ public class HandPoker extends Hand implements Comparable {
 	private boolean isFullHouse() {
 		boolean bisFullHouse = false;
 
-		// TODO: Implement method
 		if ((GetCRCSize() == eRowCount.TWO.getiRowCountItems()) 
 				&& ((GetCRCCount(eRow.ONE.ordinal())== 3) && (GetCRCCount(eRow.TWO.ordinal()) == 2))) {
 			bisFullHouse = true;
@@ -240,7 +238,6 @@ public class HandPoker extends Hand implements Comparable {
 				
 			}		
 
-		// TODO: Implement method
 
 		return bisFlush;
 	}
@@ -306,7 +303,6 @@ public class HandPoker extends Hand implements Comparable {
 			this.setHS(HSP);
 		}
 
-		// TODO: Implement method
 		return bisTwoPair;
 	}
 
@@ -323,7 +319,6 @@ public class HandPoker extends Hand implements Comparable {
 			HSP.setKickers(FindTheKickers(this.getCRC()));
 			this.setHS(HSP);
 		}
-		// TODO: Implement method
 
 		return bisPair;
 	}
