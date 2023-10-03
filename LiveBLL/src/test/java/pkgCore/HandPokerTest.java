@@ -354,6 +354,7 @@ public class HandPokerTest {
 		Assertions.assertNull(HP.getHSP().getLoCard());
 		Assertions.assertEquals(eRank.JACK, HP.getHSP().getKickers().get(0).geteRankValue());
 		
+		//hi
 	}	
 
 }
