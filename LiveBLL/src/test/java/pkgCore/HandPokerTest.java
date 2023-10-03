@@ -202,6 +202,7 @@ public class HandPokerTest {
 	
 	@Test
 	public void HandPoker_Straight2() {
+		System.out.println("checking straight 2");
 		
 		ArrayList<Card> cards = new ArrayList<Card>();
 		

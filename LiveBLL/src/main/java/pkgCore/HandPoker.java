@@ -246,20 +246,25 @@ public class HandPoker extends Hand implements Comparable {
 		boolean bisStraight = true;
 		
 		int i = 0;
-		
+	
 		// Skip to card 1 if Ace high
-		if ((this.getCards().get(0).geteRankValue() == eRank.ACE) && ((this.getCards().get(1).geteRankValue() == eRank.FIVE) || (this.getCards().get(1).geteRankValue() == eRank.KING))) {
+		if ((this.getCards().get(0).geteRankValue() == eRank.ACE) && ((this.getCards().get(1).geteRankValue() == eRank.FIVE))) {
 			i = 1;
+		
 		}
 		//Evaluate Straight
 		for (; i < this.getCards().size() - 1; i++) {
-			if ((this.getCards().get(i).geteRankValue().getiRankNbr()) == (this.getCards().get(i + 1).geteRankValue().getiRankNbr() - 1)) {
+			if ((this.getCards().get(i).geteRankValue().getiRankNbr()) == (this.getCards().get(i + 1).geteRankValue().getiRankNbr() + 1)) {
 				HandScorePoker HSP = (HandScorePoker) this.getHS();
 				HSP.seteHandStrength(eHandStrength.Straight);
 				HSP.setHiCard(this.getCards().get(0));
 				HSP.setLoCard(null);
 				HSP.setKickers(FindTheKickers(this.getCRC()));
+				if ((this.getCards().get(0).geteRankValue() == eRank.ACE) && ((this.getCards().get(1).geteRankValue() == eRank.FIVE))) {
+					HSP.setHiCard(this.getCards().get(1));
+				}
 				this.setHS(HSP);
+				
 			}
 			else {
 				bisStraight = false;
@@ -268,6 +273,7 @@ public class HandPoker extends Hand implements Comparable {
 				
 		}
 		//TODO: Implement method
+
 		return bisStraight;
 	}
 
