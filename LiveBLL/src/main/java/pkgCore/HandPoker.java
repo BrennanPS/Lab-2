@@ -19,10 +19,9 @@ public class HandPoker extends Hand implements Comparable {
 	public HandPoker() {
 
 		this.setHS(new HandScorePoker());
-		//comment 1
+
 		
 	}
-// comment
 	private ArrayList<CardRankCount> CRC = null;
 
 	private HandScorePoker HSP = new HandScorePoker();
@@ -154,7 +153,7 @@ public class HandPoker extends Hand implements Comparable {
 		}
 		if (bisRoyalFlush) {
 			HandScorePoker HSP = (HandScorePoker) this.getHS();
-			HSP.seteHandStrength(eHandStrength.Flush);
+			HSP.seteHandStrength(eHandStrength.RoyalFlush);
 			HSP.setHiCard(this.getCards().get(0));
 			HSP.setLoCard(null);
 			HSP.setKickers(FindTheKickers(this.getCRC()));
@@ -173,7 +172,7 @@ public class HandPoker extends Hand implements Comparable {
 		}
 		if (bisStraightFlush) {
 			HandScorePoker HSP = (HandScorePoker) this.getHS();
-			HSP.seteHandStrength(eHandStrength.Flush);
+			HSP.seteHandStrength(eHandStrength.StraightFlush);
 			HSP.setHiCard(this.getCards().get(0));
 			HSP.setLoCard(null);
 			HSP.setKickers(FindTheKickers(this.getCRC()));
@@ -272,15 +271,12 @@ public class HandPoker extends Hand implements Comparable {
 			}
 				
 		}
-		//TODO: Implement method
 
 		return bisStraight;
 	}
 
 	private boolean isThreeOfAKind() {
 		boolean bisThreeOfAKind = false;
-
-		// TODO: Implement method
 		
 		if ((GetCRCSize() == eRowCount.THREE.getiRowCountItems())
 				&& ((GetCRCCount(eRow.ONE.ordinal()) == 3) && (GetCRCCount(eRow.TWO.ordinal()) == 1))) {
